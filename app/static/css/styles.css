@@ -1,0 +1,415 @@
+/* ============================ BODY ============================ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-size: large;
+}
+
+/* ============================ NAVBAR ============================ */
+.navbar {
+    color: #262628; /* Text color */
+    padding: 1em 0; /* Padding for navbar */
+    box-sizing: border-box;
+    border-bottom: 1px solid #262628; /* Add a solid line below the navbar */
+}
+
+.container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items apart */
+    max-width: 1200px; /* Max width for the container */
+    margin: auto; /* Center the container */
+    padding: 0 10px; /* Padding on the sides */
+}
+
+.navbar-brand {
+    font-size: 1.5em; /* Font size for brand */
+    font-weight: bold; /* Bold font weight */
+    color: #262628; /* Text color */
+    text-decoration: none; /* No underline */
+}
+
+.navbar-toggler {
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.navbar-toggler-icon {
+    background-color: #262628; /* Toggler icon color */
+    width: 30px; /* Width of the icon */
+    height: 2px; /* Height of the icon */
+}
+
+.navbar-nav .nav-item {
+    margin: 0 15px; /* Space between items */
+}
+
+.nav-link {
+    color: #262628; /* Text color for links */
+    text-decoration: none; /* No underline */
+    padding: 0.5em; /* Padding for links */
+    transition: color 0.3s; /* Transition effect for hover */
+}
+
+.nav-link:hover {
+    color: #007BFF; /* Change color on hover */
+}
+
+.ms-auto {
+    margin-left: auto; /* Push to the right */
+}
+
+/* ============================ CONTAINER ============================ */
+.main-container {
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+
+}
+
+/* ============================ HERO SECTION ============================ */
+.hero-section {
+    background-color: #f7f7f7; /* Light background color for the hero section */
+    height: 90vh; /* Set height of hero section */
+
+    display: flex; /* Use flexbox for vertical centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    padding: 40px 0; /* Padding around the hero section */
+    max-width: 100%;
+}
+
+.hero-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center contents within the container */
+    align-items: center; /* Center items vertically within the container */
+    margin: auto; /* Center the container */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+.hero-intro {
+    flex: 1; /* Take up 50% of the width */
+    padding-right: 20px; /* Space between text and image */
+}
+
+.hero-intro h1 {
+    font-size: 2.5em; /* Larger font size for heading */
+    color: #262628; /* Heading color */
+}
+
+.hero-intro p {
+    font-size: 1.1em; /* Font size for paragraph */
+    color: #555; /* Text color */
+    margin-bottom: 20px; /* Space below paragraph */
+}
+
+.hero-image {
+    flex: 1; /* Take up 50% of the width */
+    display: flex; /* Use flexbox for centering image */
+    justify-content: center; /* Center image horizontally */
+}
+
+.hero-image img {
+    width: 100%; /* Responsive image */
+    height: 100%; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for image */
+    border: #555;
+}
+
+.btn-get-started {
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Transition effect */
+}
+
+.btn-get-started:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+.d-none .btn:hover{
+    background-color: #262628;
+    color: #fff;
+}
+/* ============================ SECTION TITLE ============================ */
+.section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em; /* Size for the main section title */
+    color: #007BFF; /* Color to match button color */
+}
+
+/* ============================ SECTION DESCRIPTION ============================ */
+.section-description {
+    text-align: center;
+    margin-bottom: 30px; /* Spacing below the description */
+    color: #555; /* Slightly lighter color for the description */
+}
+
+/* ============================ UPLOAD SECTION ============================ */
+.testapi-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+    height: 80vh;
+    
+}
+.file-upload{
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    box-sizing: border-box;
+    height: 55vh;
+    width: 100%;
+    text-align: center;
+}
+/* General Styles for Headings */
+h1, h2 {
+    text-align: center;
+    color: #262628; /* Consistent color with navbar and hero */
+}
+
+/* ============================ BUTTON STYLES ============================ */
+button, .file-btn {
+    display: block;
+    margin: 10px auto; /* Center align buttons */
+    padding: 10px 15px; /* Button padding */
+    background-color: #007BFF; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+button:hover, .file-btn:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+/* ============================ LOADING INDICATOR ============================ */
+#loading {
+    text-align: center; /* Center loading indicator */
+}
+
+/* ============================ CANVAS ============================ */
+canvas {
+    margin-top: 20px; /* Spacing above the canvas */
+    display: block; /* Block display */
+    margin-left: auto; /* Center alignment */
+    margin-right: auto; /* Center alignment */
+}
+
+/* ============================ PROGRESS BOX ============================ */
+.progress-box {
+    display: none; /* Initially hidden */
+}
+
+.uploader {
+    display: flex; /* Flexbox for uploader */
+    flex-direction: column; /* Column layout */
+    align-items: center; /* Center alignment */
+    justify-content: space-between;
+}
+
+/* ============================ FILE UPLOAD ============================ */
+.file-source-btn {
+    position: relative;
+    display: inline-block;
+}
+
+.file-input {
+    display: none; /* Hide the default file input */
+}
+
+.file-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: white; /* Text color */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative; /* Needed for positioning the vertical line */
+}
+
+.file-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.upload-icon {
+    font-size: 20px; /* Adjust size of the '+' symbol */
+    margin-right: 10px; /* Space between icon and text */
+    border-right: 2px solid white; /* Right border with white color */
+    padding-right: 10px; /* Space between the icon and the text */
+}
+
+
+.vertical-line {
+    width: 2px; /* Line thickness */
+    height: 24px; /* Adjust height to fit the button */
+    background: white; /* Line color */
+    margin-left: 10px; /* Space between text and line */
+}
+
+
+/* ============================ PROGRESS BAR ============================ */
+.progress-upload {
+    background-color: #e0e0e0; /* Background for progress bar */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    height: 20px; /* Height of the progress bar */
+}
+
+.progress-bar {
+    background-color: #4caf50; /* Color of the progress bar */
+    height: 100%; /* Full height */
+    width: 0; /* Initial width */
+}
+
+/* ============================ LOADER PROGRESS BOX ============================ */
+.loader-progress-box {
+    display: none; /* Initially hidden */
+    margin-top: 10px;
+}
+
+.progress-upload {
+    width: 100%;
+    background-color: #f3f3f3; /* Background for the progress bar */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 20px; /* Adjust height as needed */
+    width: 0%;
+    background-color: #4caf50; /* Color of the progress */
+    transition: width 0.3s; /* Smooth transition for width change */
+}
+
+.progress-text {
+    text-align: center; /* Center the text */
+    margin-bottom: 5px;
+}
+
+
+
+/* ============================ CANCEL UPLOAD ============================ */
+.cancel-upload {
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.cancel-upload svg {
+    fill: red; /* Color for the cancel icon */
+    width: 20px; /* Width of the icon */
+    height: 20px; /* Height of the icon */
+}
+
+
+
+/* ============================ ABOUT SECTION ============================ */
+.about {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.about-content {
+    text-align: center;
+    color: #555;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ============================ CONTACT SECTION ============================ */
+.contact {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+
+/* ============================ FOOTER ============================ */
+.footer {
+    background-color: #262628; /* Dark background color for footer */
+    color: white; /* Text color */
+    padding: 20px 0; /* Padding for footer */
+    text-align: center; /* Center align text */
+}
+
+.footer-content {
+    max-width: 1200px; /* Max width for content */
+    margin: auto; /* Center the content */
+    padding: 0 20px; /* Padding on the sides */
+}
+
+.footer-links {
+    list-style: none; /* Remove list bullets */
+    padding: 0; /* Remove padding */
+}
+
+.footer-links li {
+    display: inline; /* Display links inline */
+    margin: 0 15px; /* Space between links */
+}
+
+.footer-links a {
+    color: white; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.footer-links a:hover {
+    color: #007BFF; /* Change color on hover */
+}

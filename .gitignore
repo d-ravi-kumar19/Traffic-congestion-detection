@@ -1,0 +1,33 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Environment settings
+.env
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# Virtual environment directories
+venv/
+.venv/
+env/
+ENV/
+
+# Ignore compiled libraries
+*.so
+
+# Output files and folders
+outputs/
+
+# model
+app/models/weights/
