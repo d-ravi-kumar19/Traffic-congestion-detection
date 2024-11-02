@@ -1,13 +1,18 @@
 # model_utils.py
+
 import tensorflow as tf
 from tensorflow.keras.applications import EfficientNetB0, InceptionV3
 import pickle
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+local_model_path = os.getenv("LOCAL_MODEL_PATH")
 
 # Define model paths
 MODEL_PATHS = {
-    "EFNET": "app/models/weights/efficientnet_model.pkl",
-    "INCEPTv3": "app/models/weights/inceptionv3_model.pkl"
+    "EFNET": local_model_path,
 }
 
 def select_model(model_name, input_shape, num_classes):

@@ -2,15 +2,13 @@ fastapi==0.88.0
 uvicorn==0.22.0
 jinja2==3.1.2
 python-dotenv==1.0.0
-boto3==1.28.0
-aiobotocore==2.5.0
-
-# ML and image processing packages
-tensorflow==2.12.0
+python-multipart==0.0.5
+boto3==1.24.0  # changed from 1.28.0
+botocore==1.27.59  # changed from 1.31.0
+aiobotocore==2.4.0
 opencv-python-headless==4.8.0.74
 numpy==1.24.3
-keras==2.12.0
-
-# Logging and Utilities
 loguru==0.7.0
 pydantic==1.10.8
+s3fs==2022.8.0
+fsspec==2022.8.0

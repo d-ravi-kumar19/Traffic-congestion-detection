@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update file name display when an image is selected
     imageInput.addEventListener('change', () => {
         const file = imageInput.files[0];
+        console.log(file)
         imageFileNameDisplay.textContent = file ? `Selected file: ${file.name}` : '';
     });
 

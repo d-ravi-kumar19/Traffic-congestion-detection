@@ -1,3 +1,5 @@
+# test.py
+
 import boto3
 import os
 
@@ -23,3 +25,11 @@ def download_model_from_s3(bucket_name, model_file_name, local_model_path):
     # Download the model file from S3
     s3.download_file(bucket_name, model_file_name, local_model_path)
     print(f"Model downloaded from S3 to {local_model_path}")
+
+# Retrieve S3 environment variables
+bucket_name = os.getenv("BUCKET_NAME")
+model_file_name = os.getenv("MODEL_FILE_NAME")
+local_model_path = os.getenv("LOCAL_MODEL_PATH")
+
+# Download model from S3
+download_model_from_s3(bucket_name, model_file_name, local_model_path)

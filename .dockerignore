@@ -12,9 +12,6 @@ __pycache__
 logs/
 outputs/
 
-# Ignore environment files
-.env
-*.env
 
 # Ignore any local IDE/editor configuration files
 .vscode/

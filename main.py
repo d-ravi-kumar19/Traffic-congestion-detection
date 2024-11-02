@@ -1,16 +1,12 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from app.api.endpoints import router as api_router
 from app.middleware.route_not_found_middleware import RouteNotFoundMiddleware 
-from app.utils.aws_util import download_model_from_s3
 import logging
 import os
-from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
-
-load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -22,14 +18,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 app.logger = logger 
-
-# Retrieve S3 environment variables
-bucket_name = os.getenv("BUCKET_NAME")
-model_file_name = os.getenv("MODEL_FILE_NAME")
-local_model_path = os.getenv("LOCAL_MODEL_PATH")
-
-# Download model from S3
-download_model_from_s3(bucket_name, model_file_name, local_model_path)
 
 # Setup CORS for API
 app.add_middleware(

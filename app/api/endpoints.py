@@ -1,6 +1,7 @@
 import os
 import tempfile
 import time
+from typing import Dict
 from fastapi import APIRouter, File, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -25,7 +26,7 @@ server_logger, model_logger = setup_logging()
 
 # Response model for video prediction
 class PredictionResponse(BaseModel):
-    counts: dict[str, int]
+    counts: Dict[str, int]
     total_time: float
     average_frame_time: float
     total_frames_processed: int

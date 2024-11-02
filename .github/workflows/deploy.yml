@@ -15,7 +15,7 @@ jobs:
 
       - name: Log in to Amazon ECR
         env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_REGION: ap-south-1
         run: |
           aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY_URI }}
 
@@ -27,9 +27,9 @@ jobs:
 
       - name: Deploy to ECS
         env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          CLUSTER_NAME: your-ecs-cluster-name
-          SERVICE_NAME: your-ecs-service-name
-          CONTAINER_NAME: your-container-name
+          AWS_REGION: ap-south-1
+          CLUSTER_NAME: ${{ secrets.ECS_CLUSTER_NAME }}  # Your ECS cluster name
+          SERVICE_NAME: ${{ secrets.ECS_SERVICE_NAME }}  # Your ECS service name
+          CONTAINER_NAME: ${{ secrets.ECS_CONTAINER_NAME }} # Your ECS service name
         run: |
           aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment
