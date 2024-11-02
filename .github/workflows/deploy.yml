@@ -1,4 +1,4 @@
-name: Deploy to AWS
+name: Deploy to AWS EC2
 
 on:
   push:
@@ -13,23 +13,27 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Log in to Amazon ECR
-        env:
-          AWS_REGION: ap-south-1
-        run: |
-          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY_URI }}
+      - name: Set up SSH for EC2
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.ECR_REPOSITORY_URI }}:latest .
+        run: docker build -t traffic-prediction-app:latest .  # Your app name
 
-      - name: Push to Amazon ECR
-        run: docker push ${{ secrets.ECR_REPOSITORY_URI }}:latest
-
-      - name: Deploy to ECS
+      - name: Log in to EC2 and Deploy
         env:
-          AWS_REGION: ap-south-1
-          CLUSTER_NAME: ${{ secrets.ECS_CLUSTER_NAME }}  # Your ECS cluster name
-          SERVICE_NAME: ${{ secrets.ECS_SERVICE_NAME }}  # Your ECS service name
-          CONTAINER_NAME: ${{ secrets.ECS_CONTAINER_NAME }} # Your ECS service name
+          EC2_INSTANCE_IP: ${{ secrets.EC2_INSTANCE_IP }}  # Your EC2 instance public IP or DNS
         run: |
-          aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment
+          # Save and transfer the Docker image
+          docker save traffic-prediction-app:latest | gzip | ssh -o StrictHostKeyChecking=no ec2-user@$EC2_INSTANCE_IP "gunzip | docker load"
+          
+          # Stop and remove existing container if it exists
+          ssh -o StrictHostKeyChecking=no ec2-user@$EC2_INSTANCE_IP << 'EOF'
+            if [ "$(docker ps -q -f name=traffic-prediction-app)" ]; then
+              docker stop traffic-prediction-app
+              docker rm traffic-prediction-app
+            fi
+            # Run the new container
+            docker run -d --name traffic-prediction-app -p 8000:8000 traffic-prediction-app:latest
+          EOF
